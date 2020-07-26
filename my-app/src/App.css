@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.App h2 {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  font-size:2.4em;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
