@@ -15,23 +15,23 @@ steps :
       versionSpec: '10.x'
     displayName: 'Install Node.js'
 
-  - scripts: |
+  - script: |
       cd $(rootDir)
       npm install
       npm run build
       cd ..
-    displayName:'npm install and build'
+    displayName: "npm install and build"
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(buildDir)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-    
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(buildDir)'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
